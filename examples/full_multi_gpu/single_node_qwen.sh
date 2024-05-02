@@ -1,0 +1,34 @@
+#!/bin/bash
+
+deepspeed --num_gpus 8 ../../src/train_bash.py \
+    --deepspeed ../deepspeed/ds_z3_config.json \
+    --stage pt \
+    --do_train \
+    --model_name_or_path Qwen/Qwen1.5-14B \
+    --dataset h-novels-chinese-1024-v2 \
+    --dataset_dir ../../data \
+    --template default \
+    --finetuning_type full \
+    --output_dir ../../saves/Qwen1.5-14B/full/pt \
+    --overwrite_cache \
+    --overwrite_output_dir \
+    --cutoff_len 1024 \
+    --preprocessing_num_workers 16 \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 8 \
+    --gradient_accumulation_steps 4 \
+    --lr_scheduler_type cosine \
+    --logging_steps 10 \
+    --warmup_steps 100 \
+    --save_steps 200 \
+    --eval_steps 200 \
+    --evaluation_strategy steps \
+    --learning_rate 2e-5 \
+    --num_train_epochs 1.0 \
+    --max_samples 2000000 \
+    --val_size 0.005 \
+    --ddp_timeout 180000000 \
+    --plot_loss \
+    --bf16 \
+    --flash_attn "fa2" \
+    --report_to wandb

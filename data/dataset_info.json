@@ -458,5 +458,11 @@
       "prompt": "content"
     },
     "folder": "python"
+  },
+  "h-novels-chinese-1024-v2": {
+    "hf_hub_url": "/home2/mingyang/datasets/novels/h-novels-chinese-1024-v2",
+    "columns": {
+      "prompt": "text"
+    }
   }
 }
