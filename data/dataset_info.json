@@ -464,5 +464,33 @@
     "columns": {
       "prompt": "text"
     }
+  },
+  "roleplay-sft-v1": {
+    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/roleplay-sft-v1",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "system": "system"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "roleplay-sft-v2": {
+    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/roleplay-sft-v2",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "system": "system"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
   }
 }
