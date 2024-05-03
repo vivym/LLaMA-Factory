@@ -210,6 +210,26 @@ def create_train_tab(engine: "Engine") -> Dict[str, "Component"]:
         )
     )
 
+    with gr.Accordion(open=False) as badam_tab:
+        with gr.Row():
+            use_badam = gr.Checkbox()
+            badam_mode = gr.Dropdown(choices=["layer", "ratio"], value="layer")
+            badam_switch_mode = gr.Dropdown(choices=["ascending", "descending", "random", "fixed"], value="ascending")
+            badam_switch_interval = gr.Slider(value=50, minimum=1, maximum=1024, step=1)
+            badam_update_ratio = gr.Slider(value=0.05, minimum=0, maximum=1, step=0.01)
+
+    input_elems.update({use_badam, badam_mode, badam_switch_mode, badam_switch_interval, badam_update_ratio})
+    elem_dict.update(
+        dict(
+            badam_tab=badam_tab,
+            use_badam=use_badam,
+            badam_mode=badam_mode,
+            badam_switch_mode=badam_switch_mode,
+            badam_switch_interval=badam_switch_interval,
+            badam_update_ratio=badam_update_ratio,
+        )
+    )
+
     with gr.Row():
         cmd_preview_btn = gr.Button()
         arg_save_btn = gr.Button()
@@ -225,7 +245,7 @@ def create_train_tab(engine: "Engine") -> Dict[str, "Component"]:
 
             with gr.Row():
                 resume_btn = gr.Checkbox(visible=False, interactive=False)
-                process_bar = gr.Slider(visible=False, interactive=False)
+                progress_bar = gr.Slider(visible=False, interactive=False)
 
             with gr.Row():
                 output_box = gr.Markdown()
@@ -243,14 +263,14 @@ def create_train_tab(engine: "Engine") -> Dict[str, "Component"]:
             output_dir=output_dir,
             config_path=config_path,
             resume_btn=resume_btn,
-            process_bar=process_bar,
+            progress_bar=progress_bar,
             output_box=output_box,
             loss_viewer=loss_viewer,
         )
     )
 
     input_elems.update({output_dir, config_path})
-    output_elems = [output_box, process_bar, loss_viewer]
+    output_elems = [output_box, progress_bar, loss_viewer]
 
     cmd_preview_btn.click(engine.runner.preview_train, input_elems, output_elems, concurrency_limit=None)
     arg_save_btn.click(engine.runner.save_args, input_elems, output_elems, concurrency_limit=None)
