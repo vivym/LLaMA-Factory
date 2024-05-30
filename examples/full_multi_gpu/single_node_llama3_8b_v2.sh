@@ -1,18 +1,19 @@
 #!/bin/bash
 
-deepspeed --num_gpus 8 ../../src/train_bash.py \
+# https://wandb.ai/viv/huggingface/runs/y7tgufb6
+
+deepspeed --num_gpus 8 ../../src/train.py \
     --deepspeed ../deepspeed/ds_z3_config.json \
-    --stage pt \
+    --stage sft \
     --do_train \
-    --model_name_or_path Qwen/Qwen1.5-14B \
-    --dataset h-novels-chinese-1024-v2 \
+    --model_name_or_path meta-llama/Meta-Llama-3-8B \
+    --dataset roleplay-sft-v1 \
     --dataset_dir ../../data \
-    --template default \
+    --template llama3 \
     --finetuning_type full \
-    --output_dir ../../saves/Qwen1.5-14B/full/pt \
-    --overwrite_cache \
+    --output_dir ../../saves/RoleLlama3-8B/full_sft/v2 \
     --overwrite_output_dir \
-    --cutoff_len 1024 \
+    --cutoff_len 2048 \
     --preprocessing_num_workers 16 \
     --per_device_train_batch_size 8 \
     --per_device_eval_batch_size 8 \
@@ -24,11 +25,12 @@ deepspeed --num_gpus 8 ../../src/train_bash.py \
     --eval_steps 200 \
     --evaluation_strategy steps \
     --learning_rate 2e-5 \
-    --num_train_epochs 1.0 \
-    --max_samples 2000000 \
-    --val_size 0.005 \
+    --num_train_epochs 4.0 \
+    --max_samples 537204 \
+    --val_size 0.05 \
     --ddp_timeout 180000000 \
     --plot_loss \
     --bf16 \
     --flash_attn "fa2" \
-    --report_to wandb
+    --report_to wandb \
+    --packing True

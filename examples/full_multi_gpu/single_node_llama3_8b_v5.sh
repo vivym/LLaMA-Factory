@@ -1,17 +1,18 @@
 #!/bin/bash
 
-# https://wandb.ai/viv/huggingface/runs/u5o9rn3s
+# https://wandb.ai/viv/huggingface/runs/ueraing5
+# https://wandb.ai/viv/huggingface/runs/4ev4p3m7
 
 deepspeed --num_gpus 8 ../../src/train.py \
     --deepspeed ../deepspeed/ds_z3_config.json \
     --stage sft \
     --do_train \
     --model_name_or_path meta-llama/Meta-Llama-3-8B \
-    --dataset roleplay-sft-v1 \
+    --dataset roleplay-sft-v2 \
     --dataset_dir ../../data \
     --template llama3 \
     --finetuning_type full \
-    --output_dir ../../saves/RoleLlama3-8B/full_sft/v1 \
+    --output_dir ../../saves/RoleLlama3-8B/full_sft/v5 \
     --overwrite_output_dir \
     --cutoff_len 2048 \
     --preprocessing_num_workers 16 \
@@ -26,7 +27,7 @@ deepspeed --num_gpus 8 ../../src/train.py \
     --evaluation_strategy steps \
     --learning_rate 1e-5 \
     --num_train_epochs 3.0 \
-    --max_samples 537204 \
+    --max_samples 990160 \
     --val_size 0.05 \
     --ddp_timeout 180000000 \
     --plot_loss \

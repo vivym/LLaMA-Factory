@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# https://wandb.ai/viv/huggingface/runs/u5o9rn3s
+# https://wandb.ai/viv/huggingface/runs/54og1z8a
 
 deepspeed --num_gpus 8 ../../src/train.py \
     --deepspeed ../deepspeed/ds_z3_config.json \
@@ -11,7 +11,7 @@ deepspeed --num_gpus 8 ../../src/train.py \
     --dataset_dir ../../data \
     --template llama3 \
     --finetuning_type full \
-    --output_dir ../../saves/RoleLlama3-8B/full_sft/v1 \
+    --output_dir ../../saves/RoleLlama3-8B/full_sft/v6 \
     --overwrite_output_dir \
     --cutoff_len 2048 \
     --preprocessing_num_workers 16 \
@@ -25,8 +25,8 @@ deepspeed --num_gpus 8 ../../src/train.py \
     --eval_steps 200 \
     --evaluation_strategy steps \
     --learning_rate 1e-5 \
-    --num_train_epochs 3.0 \
-    --max_samples 537204 \
+    --num_train_epochs 2.2 \
+    --max_samples 990160 \
     --val_size 0.05 \
     --ddp_timeout 180000000 \
     --plot_loss \

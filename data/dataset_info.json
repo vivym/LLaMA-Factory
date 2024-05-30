@@ -549,5 +549,93 @@
       "user_tag": "human",
       "assistant_tag": "gpt"
     }
+  },
+  "h-novels-chinese-4096": {
+    "hf_hub_url": "/home2/mingyang/datasets/novels/h-novels-chinese-4096",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "h-novels-english-4096": {
+    "hf_hub_url": "/home2/mingyang/datasets/novels/h-novels-english-4096",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "MAP-CC": {
+    "hf_hub_url": "/mnt/dongxu-fs1/data-ssd/mingyang/datasets/MAP-CC/shards",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "sft-general": {
+    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/role-playing-sft-dataset/dedup/general",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "system": "system"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "sft-hq": {
+    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/role-playing-sft-dataset/dedup/hq",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "system": "system"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "sft-rp": {
+    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/role-playing-sft-dataset/dedup/rp",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "system": "system"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "sft-crushon": {
+    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/crushon/memories/sharegpt",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "system": "system"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
+  },
+  "sft-crushon-zh": {
+    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/crushon/memories/sharegpt_zh",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "system": "system"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
   }
 }

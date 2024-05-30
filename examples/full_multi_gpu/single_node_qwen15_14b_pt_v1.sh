@@ -1,0 +1,38 @@
+#!/bin/bash
+
+deepspeed --num_gpus 8 ../../src/train.py \
+    --deepspeed ../deepspeed/ds_z3_config.json \
+    --stage pt \
+    --do_train \
+    --model_name_or_path Qwen/Qwen1.5-14B \
+    --dataset h-novels-chinese-4096,h-novels-english-4096,MAP-CC \
+    --mix_strategy interleave_over \
+    --interleave_probs 0.4,0.2,0.4 \
+    --dataset_dir ../../data \
+    --template default \
+    --finetuning_type full \
+    --output_dir ../../saves/RoleQwen15-14B/full_pt/v1 \
+    --overwrite_output_dir \
+    --cutoff_len 4096 \
+    --preprocessing_num_workers 16 \
+    --per_device_train_batch_size 2 \
+    --per_device_eval_batch_size 2 \
+    --gradient_accumulation_steps 8 \
+    --lr_scheduler_type cosine \
+    --logging_steps 10 \
+    --warmup_steps 200 \
+    --save_steps 250 \
+    --eval_steps 250 \
+    --evaluation_strategy steps \
+    --learning_rate 1e-5 \
+    --max_steps 50000 \
+    --val_size 8192 \
+    --ddp_timeout 180000000 \
+    --plot_loss \
+    --bf16 \
+    --flash_attn "fa2" \
+    --report_to wandb \
+    --packing True \
+    --streaming True \
+    --seed 233 \
+    --resume_from_checkpoint /home/mingyang/projs/LLaMA-Factory/saves/RoleQwen15-14B/full_pt/v1/checkpoint-22000
