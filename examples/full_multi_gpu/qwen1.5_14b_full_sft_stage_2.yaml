@@ -1,0 +1,51 @@
+### model
+model_name_or_path: saves/RoleQwen15-14B/full_pt/v1/checkpoint-38500
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+
+### ddp
+ddp_timeout: 180000000
+deepspeed: examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset: sft-general,sft-hq,sft-rp,sft-crushon,sft-crushon-zh
+mix_strategy: interleave_over
+interleave_probs: 0.1,0.2,0.2,0.2,0.3
+template: qwen
+cutoff_len: 4096
+overwrite_cache: false
+preprocessing_num_workers: 16
+streaming: true
+packing: true
+
+### output
+output_dir: saves/RoleQwen15-14B/full_sft/v1
+logging_steps: 10
+save_steps: 250
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 0.00001
+# num_train_epochs: 3.0
+max_steps: 50000
+lr_scheduler_type: cosine
+warmup_steps: 200
+bf16: true
+
+### eval
+val_size: 1024
+per_device_eval_batch_size: 2
+evaluation_strategy: steps
+eval_steps: 250
+
+seed: 233
+
+report_to: wandb
+
+flash_attn: "fa2"
