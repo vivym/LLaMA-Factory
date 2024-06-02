@@ -569,7 +569,7 @@
     }
   },
   "sft-general": {
-    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/role-playing-sft-dataset/final_v1/sft-general",
+    "hf_hub_url": "data/rp-sft/final_v1/sft-general",
     "formatting": "sharegpt",
     "columns": {
       "messages": "conversations",
@@ -583,7 +583,7 @@
     }
   },
   "sft-hq": {
-    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/role-playing-sft-dataset/final_v1/sft-hq",
+    "hf_hub_url": "data/rp-sft/final_v1/sft-hq",
     "formatting": "sharegpt",
     "columns": {
       "messages": "conversations",
@@ -597,7 +597,7 @@
     }
   },
   "sft-rp": {
-    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/role-playing-sft-dataset/final_v1/sft-rp",
+    "hf_hub_url": "data/rp-sft/final_v1/sft-rp",
     "formatting": "sharegpt",
     "columns": {
       "messages": "conversations",
@@ -611,7 +611,7 @@
     }
   },
   "sft-crushon": {
-    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/role-playing-sft-dataset/final_v1/sft-crushon",
+    "hf_hub_url": "data/rp-sft/final_v1/sft-crushon",
     "formatting": "sharegpt",
     "columns": {
       "messages": "conversations",
@@ -625,7 +625,7 @@
     }
   },
   "sft-crushon-zh": {
-    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/role-playing-sft-dataset/final_v1/sft-crushon-zh",
+    "hf_hub_url": "data/rp-sft/final_v1/sft-crushon-zh",
     "formatting": "sharegpt",
     "columns": {
       "messages": "conversations",
