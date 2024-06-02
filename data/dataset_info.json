@@ -637,5 +637,19 @@
       "user_tag": "human",
       "assistant_tag": "gpt"
     }
+  },
+  "sft-evol": {
+    "hf_hub_url": "/home/mingyang/projs/text-data-curation/data/role-playing-sft-dataset/final_v1/sft-evol",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "system": "system"
+    },
+    "tags": {
+      "role_tag": "from",
+      "content_tag": "value",
+      "user_tag": "human",
+      "assistant_tag": "gpt"
+    }
   }
 }
