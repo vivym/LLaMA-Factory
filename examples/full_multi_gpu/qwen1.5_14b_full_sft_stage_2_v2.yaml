@@ -11,7 +11,7 @@ ddp_timeout: 180000000
 deepspeed: examples/deepspeed/ds_z3_config.json
 
 ### dataset
-dataset: sft-hq,sft-crushon,sft-crushon-zh,sft-evol
+dataset: sft-hq,sft-crushon,sft-crushon-zh,sft-crushon-zh,sft-crushon-zh,sft-evol
 mix_strategy: concat
 template: qwen
 cutoff_len: 4096
@@ -20,7 +20,7 @@ preprocessing_num_workers: 16
 packing: true
 
 ### output
-output_dir: saves/RoleQwen15-14B/full_sft/stage_2/v1
+output_dir: saves/RoleQwen15-14B/full_sft/stage_2/v2
 logging_steps: 10
 save_steps: 250
 plot_loss: true
