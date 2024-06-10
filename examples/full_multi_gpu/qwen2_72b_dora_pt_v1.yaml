@@ -1,0 +1,51 @@
+### model
+model_name_or_path: Qwen/Qwen2-72B
+
+### method
+stage: pt
+do_train: true
+finetuning_type: lora
+use_dora: true
+
+### ddp
+ddp_timeout: 180000000
+deepspeed: examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset: h-novels-chinese-4096,h-novels-english-4096,MAP-CC
+mix_strategy: interleave_over
+interleave_probs: 0.4,0.2,0.4
+template: default
+cutoff_len: 2048
+overwrite_cache: false
+preprocessing_num_workers: 16
+packing: true
+streaming: true
+
+### output
+output_dir: saves/RoleQwen2-72B/full_pt/v1
+logging_steps: 5
+save_steps: 200
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 4
+learning_rate: 0.00001
+max_steps: 10000
+lr_scheduler_type: cosine
+warmup_ratio: 0.01
+bf16: true
+
+### eval
+val_size: 8192
+per_device_eval_batch_size: 4
+evaluation_strategy: steps
+eval_steps: 200
+
+seed: 2332
+
+report_to: wandb
+
+flash_attn: "fa2"
